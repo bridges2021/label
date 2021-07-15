@@ -21,6 +21,6 @@ final _label = await getLabel(id: 'id here')
 await Printing.layoutPdf(onLayout: (pdfPageFormat) async {return getLabel(id: 'id here')}
 
 /// bridges/brother_label_printer
-final _file = File('${await getTemporaryDirectory()}/example.pdf').writeAsBytes(_label);
-await BrotherLabelPrinter.fileExist(_file.path);
+final _file = await File('${await getTemporaryDirectory()}/example.pdf').writeAsBytes(_label);
+await BrotherLabelPrinter.printFromPath(_file.path);
 ```
