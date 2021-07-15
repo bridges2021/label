@@ -1,11 +1,10 @@
 import 'dart:typed_data';
 
-import 'package:flutter/services.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
 
-Future<Uint8List> getLabel(
-  PdfPageFormat pdfPageFormat, {
+Future<Uint8List> getLabel({
+  PdfPageFormat? pdfPageFormat,
   required String id,
   String title = '',
   String detail = '',
@@ -17,17 +16,21 @@ Future<Uint8List> getLabel(
   // var boldFont =
   //     Font.ttf(await rootBundle.load('assets/fonts/Roboto-Bold.ttf'));
 
-  final pdf =
-      Document(
-          // theme: ThemeData.withFont(base: baseFont, bold: boldFont)
+  final pdf = Document(
+      // theme: ThemeData.withFont(base: baseFont, bold: boldFont)
       );
 
   pdf.addPage(Page(
-      pageFormat: pdfPageFormat,
+      pageFormat: pdfPageFormat ??
+          PdfPageFormat(175.748031496063, 283.46456692913387,
+              marginLeft: 4.365354330708661,
+              marginRight: 4.365354330708661,
+              marginBottom: 8.588976377952756,
+              marginTop: 8.588976377952756),
       orientation: PageOrientation.landscape,
       build: (Context context) {
         return Padding(
-            padding: EdgeInsets.all(2),
+            padding: EdgeInsets.symmetric(horizontal: 1),
             child: Expanded(
                 child: Container(
                     child: Column(

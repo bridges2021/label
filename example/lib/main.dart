@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:label/getLabel.dart';
 import 'package:pdf/pdf.dart';
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
         body: Column(
           children: [
             Expanded(child: PdfPreview(build: (PdfPageFormat pdfPageFormat) {
-              return getLabel(pdfPageFormat,
+              return getLabel(pdfPageFormat: pdfPageFormat,
                   id: 'Testing ID here 123123',
                   detail:
                       'Detail here, long Detail long Detail long Detail long Detail long Detail long Detail long Detail long Detail long Detail long Detail long Detail long Detail long Detail long Detail long Detail long Detail long Detail long Detail long Detail long Detail long Detail long Detail long Detail long Detail long Detail long Detail long Detail',
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
                     onPressed: () async {
                       await Printing.layoutPdf(
                           onLayout: (PdfPageFormat pdfPageFormat) async {
-                        return getLabel(pdfPageFormat,
+                        return getLabel(
                             id: 'Testing ID here 123123',
                             title: 'Product name or pallet name',
                             detail:
@@ -42,6 +44,7 @@ class MyApp extends StatelessWidget {
                             createDate: '2021 - 02 - 05 16:23:42',
                             lastModifyDate: '2021 - 04 - 12 08:04:22');
                       });
+                      File('').writeAsBytes(await getLabel(id: 'qweoiqjwe'));
                     },
                     child: Text('Print'))
               ],
