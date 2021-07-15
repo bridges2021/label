@@ -1,2 +1,26 @@
 # label
  Create label
+
+## Installation
+1. Add this to pubspec.yaml
+```yaml
+liquidity_gallery:
+  git:
+    url: https://github.com/LiquidityGallery/liquidity_gallery.git
+    ref: main
+```
+
+## How to use
+1. Get label Uint8List
+```dart
+final _label = await getLabel(PdfPageFormat(), id: 'id here')
+```
+2. Print by bridges/brother_label_printer or printing
+```dart
+/// by printing
+await Printing.layoutPdf(onLayout: (pdfPageFormat) async {return getLabel(id: 'id here')}
+
+/// bridges/brother_label_printer
+final _file = File('${await getTemporaryDirectory()}/example.pdf').writeAsBytes(_label);
+await BrotherLabelPrinter.fileExist(_file.path);
+```
