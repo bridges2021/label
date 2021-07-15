@@ -13,7 +13,7 @@ label:
 ## How to use
 1. Get label Uint8List
 ```dart
-final _label = await getLabel(PdfPageFormat(), id: 'id here')
+final _label = await getLabel(id: 'id here')
 ```
 2. Print by bridges/brother_label_printer or printing
 ```dart
