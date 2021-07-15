@@ -4,9 +4,9 @@
 ## Installation
 1. Add this to pubspec.yaml
 ```yaml
-liquidity_gallery:
+label:
   git:
-    url: https://github.com/LiquidityGallery/liquidity_gallery.git
+    url: https://github.com/bridges2021/label.git
     ref: main
 ```
 
