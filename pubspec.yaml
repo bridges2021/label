@@ -23,9 +23,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-  assets:
-    - packages/label/assets/fonts/Roboto-Bold.ttf
-    - packages/label/assets/fonts/Roboto-Regular.ttf
 
   # To add assets to your package, add an assets section, like this:
   # assets:
